@@ -21,19 +21,13 @@ const InfoScreen = (): JSX.Element => {
           </Text>
         </View>
         <View style={styles.aboutContainer}>
-          <Text style={styles.aboutText}>Вы так же можете воспользоваться веб версией:</Text>
+          <Text style={styles.text}>Вы так же можете воспользоваться веб версией:</Text>
           <Text
-            style={{ color: "blue", fontSize: 24 }}
+            style={{ color: "blue", fontSize: 24, textAlign: "center" }}
             //TODO Change the link!
-            onPress={() => Linking.openURL("http://stolovaya51.ru")}
+            onPress={() => Linking.openURL("http://english-endless.ru")}
           >
-            stolovaya51.ru
-          </Text>
-        </View>
-        <View style={styles.thxContainer}>
-          <Text style={styles.thxText}>
-            Хочу выразить большую благодарность моей сестре <Text style={{color: "red"}}>Кате!</Text> Ты всегда
-            вдохновляешь меня двигаться вперед!
+            english-endless.ru
           </Text>
         </View>
       </View>
@@ -69,20 +63,12 @@ const styles = StyleSheet.create({
   },
   aboutContainer: {
     flex: 1,
-    padding: "10%",
-    alignItems: "center",
-    justifyContent: "flex-end",
+    gap: 10,
+    padding: 10,
   },
   aboutText: {
-    textAlign: "center",
-    fontSize: 17,
-  },
-  thxContainer: {
-    padding: 10
-  },
-  thxText: {
+    textAlign: "justify",
     fontSize: 16,
-    textAlign: "center"
   }
 });
 
