@@ -76,7 +76,7 @@ const AnswerUnitsComponent: React.FC<AnswerUnitsComponentProps> = ({
 const styles = StyleSheet.create({
   container: {
     display: "flex",
-    gap: 10,
+    gap: 5,
     padding: 10,
     justifyContent: "flex-start",
     alignItems: "flex-start",
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   answerUnit: {
-    padding: 10,
+    padding: 5,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "white",
