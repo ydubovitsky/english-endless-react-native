@@ -1,4 +1,4 @@
-import { View, Text, Linking, StyleSheet } from "react-native";
+import { View, Text, Linking, StyleSheet, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AboutSvg from "../../common/components/svg/about-svg";
 import ButtonComponent from "../../common/components/button/button.component";
@@ -11,21 +11,35 @@ const InfoScreen = (): JSX.Element => {
           <AboutSvg />
         </View>
         <View style={styles.textContainer}>
-          <Text style={styles.title}>О Приложении</Text>
-          <Text style={styles.text}>
-            В первую очередь, спасибо, что устагновили это приложение, я
-            искренне надеюсь, что оно поможет вам в освоении такого прекрасного
-            языка, как английский!
-          </Text>
-          <Text style={styles.text}>
-            Данное приложение - это бесконечный поток упражнений, позволяющий
-            оттачить ваши навыки до автоматизма. Вы изучите все основные
-            временные конструкции и сможете применять их в реальной жизни.
-          </Text>
-          <Text style={styles.text}>
-            Вы так же можете воспользоваться полноценной веб версией данной
-            программы:
-          </Text>
+          <ScrollView contentContainerStyle={{ rowGap: 10 }}>
+            <Text style={styles.title}>О Приложении</Text>
+            <Text style={styles.text}>
+              В первую очередь, спасибо, что установили это приложение, я
+              искренне надеюсь, что оно поможет вам в освоении такого
+              прекрасного языка, как английский!
+            </Text>
+            <Text style={styles.text}>
+              Данное приложение - это бесконечный поток упражнений, позволяющий
+              оттачить ваши навыки до автоматизма. Вы изучите все основные
+              временные конструкции и сможете применять их в реальной жизни.
+            </Text>
+            <View>
+              <Text style={styles.text}>
+                Я также выражаю большую благодарность, коллективу
+              </Text>
+              <Text
+                style={{ ...styles.text, color: "blue"}}
+                //TODO Change the link!
+                onPress={() => Linking.openURL("https://storyset.com/people")}
+              >
+                storyset.com
+              </Text>
+              <Text style={styles.text}>за предоставление SVG изображений.</Text>
+            </View>
+            <Text style={styles.text}>
+              Вы можете воспользуйтесь веб версией данной программы, перейдя по ссылке ниже:
+            </Text>
+          </ScrollView>
         </View>
         <View style={styles.buttonContainer}>
           <ButtonComponent
@@ -58,19 +72,13 @@ const styles = StyleSheet.create({
     borderTopStartRadius: 50,
     borderTopEndRadius: 50,
     padding: 20,
-    flexDirection: "column",
-    gap: 20,
-    alignContent: "center",
-    justifyContent: "center",
   },
   title: {
     fontSize: 32,
-    marginBottom: 20,
     textAlign: "center",
   },
   text: {
     fontSize: 16,
-    marginBottom: 10,
   },
   buttonContainer: {
     flex: 1,

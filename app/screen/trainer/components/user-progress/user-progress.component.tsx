@@ -9,7 +9,7 @@ const UserProgressComponent: React.FC<UserProgressComponentProps> = ({
 }): JSX.Element => {
   return (
     <View style={styles.container}>
-      <Text>Ваш прогресс</Text>
+      <Text style={styles.text}>Ваш прогресс</Text>
       <View style={styles.progressElementsContainer}>
         {progressElementList}
       </View>
@@ -20,7 +20,6 @@ const UserProgressComponent: React.FC<UserProgressComponentProps> = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    gap: 5,
     padding: 5,
     shadowColor: "#000",
     shadowOffset: {
@@ -31,6 +30,9 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 3,
     marginVertical: 5,
+  },
+  text: {
+    marginLeft: 5
   },
   progressElementsContainer: {
     borderWidth: 1,

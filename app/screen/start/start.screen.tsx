@@ -12,7 +12,7 @@ const StartScreen = ({navigation} : any): JSX.Element => {
         </View>
         <View style={styles.textContainer}>
           <Text style={styles.title}>Добро пожаловать!</Text>
-          <Text style={styles.description}>Английские времена - это просто! Давайте уже приступим к учебе!</Text>
+          <Text style={styles.description}>Английские времена - это просто. Давайте быстрее приступим к учебе.</Text>
         </View>
         <View style={styles.buttonContainer}>
           <ButtonComponent backgroundColor="#0071F2" title="Начать" onPress={() => navigation.navigate('Список времен', {name: 'Jane'})}/>
