@@ -19,3 +19,6 @@ https://storyset.com/people
 
 Free svg images
 https://freesvgillustration.com/?s=about&id=603
+
+### Build project APK (eas build -p android --profile apk)
+https://docs.expo.dev/build-reference/apk/

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "infinity-grammar-react-native",
-    "slug": "infinity-grammar-react-native",
+    "name": "English Endless",
+    "slug": "english-endless-react-native",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -22,11 +22,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.y.dubovitsky.englishendlessreactnative"
     },
     "web": {
       "bundler": "metro",
       "favicon": "./assets/images/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "494d8f86-3f9e-44fe-b758-cf7e404ed8a1"
+      }
     }
   }
 }
