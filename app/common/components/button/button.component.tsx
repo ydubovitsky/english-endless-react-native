@@ -33,9 +33,8 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    width: "100%",
     height: 50,
-    borderRadius: 10
+    borderRadius: 30
   },
   text: {
     fontSize: 16,

@@ -12,6 +12,7 @@ const ProgressBlockComponent: React.FC<ProgressBlockComponentProps> = ({
 
 const styles = StyleSheet.create({
   container: {
+    margin: 1,
     width: 10,
     height: 10,
   },

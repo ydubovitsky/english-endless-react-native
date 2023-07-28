@@ -5,9 +5,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import ButtonRoundComponent from "../../common/components/button-round/button-round.component";
 import { SentenceInterface, TenseInterface } from "../../types";
 import { default as rndRangeNum } from "../../utils/randomNumberInRange";
-import AnswerUnitsComponent from "./components/trainer/components/answer-units/answer-units.component";
-import ProgressBlockComponent from "./components/trainer/components/progress-block/progress-block.component";
-import UserProgressComponent from "./components/trainer/components/user-progress/user-progress.component";
+import AnswerUnitsComponent from "./components/answer-units/answer-units.component";
+import ProgressBlockComponent from "./components/progress-block/progress-block.component";
+import UserProgressComponent from "./components/user-progress/user-progress.component";
+import AnswerModalComponent from "./components/answer-modal/answer-modal.component";
+import { Portal } from "react-native-paper";
 
 const TrainerComponent = (props: any): JSX.Element => {
   //! Все параметры передаются в route.params!
@@ -53,11 +55,16 @@ const TrainerComponent = (props: any): JSX.Element => {
     }, 5000);
   };
 
+  const hideAnswer = () : void => {
+    setIsAnswerVisible(false);
+  }
+
   const checkUserAnswer = (
     userAnswer: string,
     sentence: SentenceInterface
   ): void => {
-    userAnswer.replaceAll(" ", "") === sentence.ru.replaceAll(" ", "")
+    userAnswer.replace(/\s/g,'') === sentence.ru.replace(/\s/g,'')
+    userAnswer === sentence.ru
       ? setProgressElementList([
           ...progressElementList,
           <ProgressBlockComponent
@@ -111,7 +118,10 @@ const TrainerComponent = (props: any): JSX.Element => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "whitesmoke" }}>
+      <Portal>
+        <AnswerModalComponent answer={sentence.ru} visible={isAnswerVisible} hideAnswer={hideAnswer}/>
+      </Portal>
       <View style={styles.container}>
         {/* //! TODO Добавить кнопку - модалку для подсказки */}
         <View style={styles.scrollViewContainer}>
@@ -119,7 +129,7 @@ const TrainerComponent = (props: any): JSX.Element => {
             <View style={styles.taskContainer}>
               <Text style={styles.taskText}>{sentence.en}</Text>
               <View style={styles.showAnswerButton}>
-                <Text>Показать ответ</Text>
+                <Text onPress={showAnswer}>Показать ответ</Text>
               </View>
             </View>
             <AnswerUnitsComponent
@@ -159,10 +169,6 @@ const TrainerComponent = (props: any): JSX.Element => {
             onPress={navigateToMainPage}
           />
         </View>
-        {/* //TODO Оформить как модалку?
-      <View>
-        <Text>{sentence.ru}</Text>
-      </View> */}
       </View>
     </SafeAreaView>
   );

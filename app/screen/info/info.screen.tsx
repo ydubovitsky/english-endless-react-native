@@ -1,6 +1,7 @@
 import { View, Text, Linking, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AboutSvg from "../../common/components/svg/about-svg";
+import ButtonComponent from "../../common/components/button/button.component";
 
 const InfoScreen = (): JSX.Element => {
   return (
@@ -12,23 +13,26 @@ const InfoScreen = (): JSX.Element => {
         <View style={styles.textContainer}>
           <Text style={styles.title}>О Приложении</Text>
           <Text style={styles.text}>
-            Данное приложение - это бесконечные упражнения, позволяющие оттачить
-            ваши навыки до автоматизма.
+            В первую очередь, спасибо, что устагновили это приложение, я
+            искренне надеюсь, что оно поможет вам в освоении такого прекрасного
+            языка, как английский!
           </Text>
           <Text style={styles.text}>
-            Я очень надеюсь, что оно поможет вам в освоении такого
-            прекрасного языка - как английский.
+            Данное приложение - это бесконечный поток упражнений, позволяющий
+            оттачить ваши навыки до автоматизма. Вы изучите все основные
+            временные конструкции и сможете применять их в реальной жизни.
+          </Text>
+          <Text style={styles.text}>
+            Вы так же можете воспользоваться полноценной веб версией данной
+            программы:
           </Text>
         </View>
-        <View style={styles.aboutContainer}>
-          <Text style={styles.text}>Вы так же можете воспользоваться веб версией:</Text>
-          <Text
-            style={{ color: "blue", fontSize: 24, textAlign: "center" }}
-            //TODO Change the link!
+        <View style={styles.buttonContainer}>
+          <ButtonComponent
+            title="Веб сайт"
+            backgroundColor="#0071F2"
             onPress={() => Linking.openURL("http://english-endless.ru")}
-          >
-            english-endless.ru
-          </Text>
+          />
         </View>
       </View>
     </SafeAreaView>
@@ -39,7 +43,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignContent: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   svgContainer: {
     flex: 3,
@@ -49,27 +53,32 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   textContainer: {
-    flex: 2,
-    gap: 10,
-    padding: 10,
+    flex: 4,
+    backgroundColor: "white",
+    borderTopStartRadius: 50,
+    borderTopEndRadius: 50,
+    padding: 20,
+    flexDirection: "column",
+    gap: 20,
+    alignContent: "center",
+    justifyContent: "center",
   },
   title: {
     fontSize: 32,
+    marginBottom: 20,
     textAlign: "center",
   },
   text: {
     fontSize: 16,
-    textAlign: "justify"
+    marginBottom: 10,
   },
-  aboutContainer: {
+  buttonContainer: {
     flex: 1,
-    gap: 10,
-    padding: 10,
+    backgroundColor: "white",
+    alignContent: "center",
+    justifyContent: "center",
+    paddingHorizontal: "20%",
   },
-  aboutText: {
-    textAlign: "justify",
-    fontSize: 16,
-  }
 });
 
 export default InfoScreen;

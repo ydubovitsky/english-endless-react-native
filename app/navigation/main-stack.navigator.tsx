@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
 import InfoScreen from "../screen/info/info.screen";
 import StartScreen from "../screen/start/start.screen";
@@ -49,16 +49,16 @@ const BottomTabNavigator = () => (
   </Tab.Navigator>
 );
 
-const Stack = createNativeStackNavigator<any>();
+const Stack = createStackNavigator<any>();
 
 const MainStackNavigator = () => (
   <NavigationContainer>
     <Stack.Navigator
       initialRouteName="Старт"
-      screenOptions={{ headerShown: false }}
+      screenOptions={{ headerShown: false, cardStyle: { backgroundColor: '#FFFFFF' } }}
     >
       <Stack.Screen name="Старт" component={StartScreen} />
-      <Stack.Screen name="Времена" component={BottomTabNavigator} />
+      <Stack.Screen name="Список времен" component={BottomTabNavigator} />
       <Stack.Screen name="Тренажер" component={TrainerComponent} />
     </Stack.Navigator>
   </NavigationContainer>

@@ -63,7 +63,7 @@ const TenseScreen = (props: any): JSX.Element => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
         <View style={styles.container}>
           <ScrollView showsHorizontalScrollIndicator={false} >
             {showAllTenses()}
