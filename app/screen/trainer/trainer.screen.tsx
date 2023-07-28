@@ -64,7 +64,6 @@ const TrainerComponent = (props: any): JSX.Element => {
     sentence: SentenceInterface
   ): void => {
     userAnswer.replace(/\s/g,'') === sentence.ru.replace(/\s/g,'')
-    userAnswer === sentence.ru
       ? setProgressElementList([
           ...progressElementList,
           <ProgressBlockComponent
